@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<title>Ch. 7 Statistical Inference</title>
+	<meta name="description" content="Ch. 7 Statistical Inference">
+	<meta name="author" content="Sherri Verdugo">
+	<meta name="generator" content="slidify" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/core/deck.core.css">
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/goto/deck.goto.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/hash/deck.hash.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/menu/deck.menu.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/navigation/deck.navigation.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/scale/deck.scale.css">
+<link rel="stylesheet" href="libraries/frameworks/deckjs/extensions/status/deck.status.css">
+<!-- Style theme. More available in /themes/style/  -->
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/themes/style/swiss.css">
+	
+	<!-- Transition theme. More available in /themes/transition/  -->
+	<link rel="stylesheet" href="libraries/frameworks/deckjs/themes/transition/horizontal-slide.css">
+	<script src="libraries/frameworks/deckjs/modernizr.custom.js"></script>
+	
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="libraries/highlighters/reveal.js/css/solarized_light.css">
+	
+	  <link rel="stylesheet" href = "libraries/widgets/quiz/css/demo.css">
+<link rel="stylesheet" href = "libraries/widgets/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+
+<body class="deck-container">
+
+  <!-- Begin slides -->
+  <section class="slide " id="slide-1">
+  <h2>Chapter 7: Statistical Inference</h2>
+  <p>Class: Soc 303</p>
+
+<p>Author: Sherri Verdugo, CSUF Instructor</p>
+
+<p>Date: 9/29/2014</p>
+
+</section>
+<section class="slide class" id="title">
+  <h2>Administration Topics</h2>
+  <ul>
+<li>Attendance</li>
+<li>Always read instructions for assignments:
+
+<ul>
+<li>either in the forum, the initial posting, or the document itself</li>
+</ul></li>
+<li>This Week: 
+
+<ul>
+<li>Chapter 7 Statistical Inference</li>
+<li>Chapter 8 Probability, z and t tests</li>
+</ul></li>
+<li>Upcoming Items
+
+<ul>
+<li>Homework 1 is due by -- Midnight 9/30/14. Late fee kicks in after midnight.</li>
+<li>Homework 2 released next Monday 10/6/14</li>
+<li>Exam 2 10/22</li>
+<li>Writing Draft 10/29</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="admin">
+  <h2>Chapter 7 Statistical Inference and Tests of Inference</h2>
+  <h3>Prologue</h3>
+
+<p>In social sciences, biology, or any field...we have a slight problem with the need to generalize about groups. Sometimes, the groups are too large and we can&#39;t find everyone, it could be cost prohibitive in both terms of time and money, etc. So, how can we study a smaller representation of a larger group that we may not be able to study in it&#39;s entirety. To accomplish this fundamental aspect of research....we can take a representative and random sample from a population. We then can use probability theory to make a decision about the hypothesis that we wish to test.</p>
+
+<p>Now when we talk about statistics, we can keep this in mind:</p>
+
+<ul>
+<li>A <strong>P</strong>arameter is to a <strong>P</strong>opulation as a <strong>S</strong>tatistic is to a <strong>S</strong>ample</li>
+</ul>
+
+</section>
+<section class="slide class" id="pro">
+  <h2>Chapter Outline</h2>
+  <ul>
+<li>What is Statistical Inference?</li>
+<li>Sampling</li>
+<li>Random Samples</li>
+<li>Normal Curve (Outside Textbook Information)</li>
+<li>Hypotheses</li>
+<li>Comparing Means
+
+<ul>
+<li>One Sample</li>
+<li>Two Sample</li>
+<li>Multiple Samples</li>
+</ul></li>
+<li>Test Statistic</li>
+<li>Significance and Confidence</li>
+<li>Probabilities</li>
+<li>Decision Making</li>
+<li>Types of Errors</li>
+<li>Review: Equations and Key Concepts </li>
+</ul>
+
+</section>
+<section class="slide class" id="outline">
+  <h2>Statistical Inference</h2>
+  <p>Statistical inference is achieved by using tests of statistical significance, or techniques that help us to generalize to a larger group.</p>
+
+<p>A <strong>P</strong>arameter is to a <strong>P</strong>opulation as a <strong>S</strong>tatistic is to a <strong>S</strong>ample</p>
+
+<ul>
+<li>Sample: group of subjects in a study</li>
+<li>Population: All possible subjects that we intend to learn about</li>
+<li>Probabilities are theoretical...
+
+<ul>
+<li>They are expectations of what will happen</li>
+</ul></li>
+<li>Actual trials are empirical
+
+<ul>
+<li>They are actually what does happen </li>
+</ul></li>
+<li>Equally Likely Model – all outcomes are equally likely of occurring </li>
+<li>Mutually Exclusive Outcomes – outcome of one trial is independent of the outcome on any other trial</li>
+<li>Mutually Exhaustive Outcomes - we account for all possible outcomes in a scenario. </li>
+</ul>
+
+</section>
+<section class="slide class" id="inf1">
+  <h2>Statistical Inference.... Not a problem.</h2>
+  <p>Eleanor scores 680 on the Mathematics part of the SAT. The distribution of SAT scores in a reference population is Normal, with mean 500 and standard deviation 100. Gerald takes the American College Testing (ACT) Mathematics test and scores 27. ACT scores are Normally distributed with mean 18 and standard deviation 6. Assuming that both tests measure the same kind of ability, who did better?</p>
+
+<ol>
+<li><em>Eleanor</em></li>
+<li>Gerald</li>
+</ol>
+
+<h4>Explanation</h4>
+
+<p>We need to standardize the scores to make the comparison for the informed decision.</p>
+
+<ul>
+<li>Eleanor \[z_E = \frac{680 - 500}{100} = 1.8\]</li>
+<li>Gerald \[z_G = \frac{27 - 18}{6} = 1.5\]</li>
+</ul>
+
+<p>Since, Eleanor has a higher standardized score, we can conclude that Eleanor did better!</p>
+
+<ul>
+<li>Source: <a href="http://ramnathv.github.io/user2014-idocs-slides/demos/widgets/quiz-all/#3">http://ramnathv.github.io/user2014-idocs-slides/demos/widgets/quiz-all/#3</a></li>
+</ul>
+
+</section>
+<section class="slide class" id="inf2">
+  <h2>Statistical Inference ... a few more words.</h2>
+  <p>Consider this type of question:</p>
+
+<p>Linda is 31 years old, single, outspoken, and very bright. She majored in philosophy. As a student, she was deeply concerned with issues of discrimination and social justice, and also participated in anti-nuclear demonstrations.</p>
+
+<p>Which is more probable?</p>
+
+<ol>
+<li><em>Linda is a bank teller.</em></li>
+<li>Linda is a bank teller and is active in the feminist movement.</li>
+</ol>
+
+<h4>Hint</h4>
+
+<p>Think about the probabilities of each event, and that of both of them together.</p>
+
+<h4>Explanation</h4>
+
+<p>If you selected 2, step back and think. Suppose we denote the event of Linda being a teller by A and the event she is active in the feminist movement by B, then probabilities in question can be written as.</p>
+
+<ul>
+<li>P(A)</li>
+<li>\(P(A \cap B)\)</li>
+</ul>
+
+<p>This is called the <a href="http://en.wikipedia.org/wiki/Conjunction_fallacy">conjugacy fallacy</a> that occurs when it is assumed that specific conditions are more probable than a single general one.</p>
+
+</section>
+<section class="slide class" id="inf3">
+  <h2>Sampling</h2>
+  <p>Examples:</p>
+
+<ul>
+<li>A pollster is sure that the responses to his “agree/disagree” question will follow a binomial distribution, but p, the proportion of those who “agree” in the population, is unknown.</li>
+<li>An agronomist believes that the yield per acre of a variety of wheat is approximately normally distributed, but the mean m and the standard deviation s of the yields are unknown.</li>
+<li>If you want the sample to provide reliable information about the population, you must select your sample in a certain way!</li>
+</ul>
+
+</section>
+<section class="slide class" id="sampling">
+  <h2>Sampling</h2>
+  <ul>
+<li><p>Sampling Error – differences between two samples that are attributed to random error or chance </p></li>
+<li><p>Significant Differences – differences between two samples that are attributed to an outside factor such as an IV </p></li>
+</ul>
+
+<h3>Brief Intro to the Central Limit Theorem and Sampling</h3>
+
+<ul>
+<li><p>Next week we will cover this in more detail, but for now:</p></li>
+<li><p>Central Limit Theorem – the means of an infinite number of samples drawn from the same population will approximate a normal distribution </p></li>
+<li><p>The mean of this distribution, called the sampling distribution of the mean, is equal to the mean of the population </p></li>
+</ul>
+
+</section>
+<section class="slide class" id="sampling2">
+  <h2>Sampling Distribution</h2>
+  <p>Definition: The <strong>sampling distribution</strong> of a statistic is the probability distribution for the possible values of the statistic that results when random samples of size n are repeatedly drawn from the population.</p>
+
+<ul>
+<li><p>Population: 3, 5, 2, 1</p>
+
+<ul>
+<li>Draw samples of size n = 3 without replacement</li>
+</ul></li>
+<li><p>Possible Samples:</p></li>
+</ul>
+
+<p><img src="sampling_pop.png" alt="width"> 
+<img src="sampling_pop1.png" alt="width"></p>
+
+<p>Each value of x-bar is equally likely, with probability 1/4</p>
+
+</section>
+<section class="slide class" id="sampling3">
+  <h2>Random Samples</h2>
+  <ul>
+<li>The sampling plan or experimental design determines the amount of information you can extract, and often allows you to measure the reliability of your inference.</li>
+<li>Simple random sampling is a method of sampling that allows each possible sample of size n an equal probability of being selected.</li>
+</ul>
+
+<h3>Types of Random Samples</h3>
+
+<p>Sampling can occur in two types of practical situations:</p>
+
+<ul>
+<li>Observational studies: The data existed before you decided to study it. Watch out for
+
+<ul>
+<li>Nonresponse: Are the responses biased because only opinionated people responded?
+*Undercoverage: Are certain segments of the population systematically excluded?</li>
+<li>Wording bias: The question may be too complicated or poorly worded.</li>
+</ul></li>
+<li>Experimentation: The data are generated by imposing an experimental condition or treatment on the experimental units. 
+*Hypothetical populations can make random sampling difficult if not impossible.
+
+<ul>
+<li>Samples must sometimes be chosen so that the experimenter believes they are representative of the whole population. </li>
+<li>Samples must behave like random samples!</li>
+</ul></li>
+</ul>
+
+<h3>Examples</h3>
+
+<ul>
+<li>Stratified random sample:  Divide the population into sub populations or strata and select a simple random sample from each strata.</li>
+<li>Cluster sample: Divide the population into subgroups called clusters; select a simple random sample of clusters and take a census of every element in the cluster.</li>
+<li>1-in-k systematic sample: Randomly select one of the first k elements in an ordered population, and then select every k-th element thereafter.</li>
+</ul>
+
+</section>
+<section class="slide class" id="random">
+  <h2>More Examples</h2>
+  <ul>
+<li>Divide California into counties and take a simple random sample within each county.
+
+<ul>
+<li>Stratified</li>
+</ul></li>
+<li>Divide California into counties and take a simple random sample of 10 counties.
+
+<ul>
+<li>Clustered
+Divide a city into city blocks, choose a simple random sample of 10 city blocks, and interview all who live there.</li>
+<li>Clustered
+Choose an entry at random from the phone book, and select every 50th number thereafter. </li>
+<li>1 in 50 Systematic</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="random2">
+  <h2>Non-Random Sampling Plans: Not used for statistical inference</h2>
+  <ul>
+<li><p>Can be used for data mining</p></li>
+<li><p>Convenience sample:  A sample that can be taken easily without random selection.</p>
+
+<ul>
+<li>People walking by on the street</li>
+</ul></li>
+<li><p>Judgment sample: The sampler decides who will and won’t be included in the sample.      </p></li>
+<li><p>Quota sample: The makeup of the sample must reflect the makeup of the population on some selected characteristic.</p>
+
+<ul>
+<li>Race, ethnic origin, gender, etc.</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="nonrandom">
+  <h2>Normal Curve (Outside Textbook Information)</h2>
+  <h3>...The Bell Shaped Curve...</h3>
+
+<p>The normal curve is symmetric, bell shaped, and asymptotic. The inflection points fall at one standard deviation above and below the mean.</p>
+
+<p><img src="normalcurve.png" alt="width"></p>
+
+</section>
+<section class="slide class" id="normal1">
+  <h2>Normal Curve: Areas Under the Curve</h2>
+  <p>The normal curve always has these proportions:</p>
+
+<p><img src="normalcurveareas1.png" alt="width"></p>
+
+<p>and </p>
+
+<p><img src="normalcurveareas2.png" alt="width"></p>
+
+</section>
+<section class="slide class" id="normal2">
+  <h2>Hypotheses</h2>
+  <p>Hypothesis tests follow a logical format ...</p>
+
+<ul>
+<li>(𝑊ℎ𝑎𝑡 𝑑𝑖𝑑 𝑦𝑜𝑢 𝑔𝑒𝑡?−𝑊ℎ𝑎𝑡 𝑑𝑖𝑑 𝑦𝑜𝑢 𝑒𝑥𝑝𝑒𝑐𝑡?)/(𝑆𝑡𝑎𝑛𝑑𝑎𝑟𝑑𝑖𝑧𝑒𝑑 𝑅𝑎𝑛𝑑𝑜𝑚 𝐸𝑟𝑟𝑜𝑟 )</li>
+</ul>
+
+<p>Z-scores have the same formula with X = what you got, M = what you expected, and s = the standardized random error </p>
+
+<ul>
+<li><p>Independent Variable (IV) – the causal variable</p>
+
+<ul>
+<li>Is typically manipulated by the researcher</li>
+</ul></li>
+<li><p>Dependent Variable (DV) – the effect </p>
+
+<ul>
+<li>Is typically expected to be impacted by the IV </li>
+</ul></li>
+<li><p>Extraneous Variable (XV) or Confounding Variable (CV) – unintended variable               </p>
+
+<ul>
+<li>Impacts the DV </li>
+</ul></li>
+<li><p>Hypotheses:</p>
+
+<ul>
+<li>Null Hypothesis – no effect of IV on DV \(\mu_x = \mu_y\)</li>
+<li>Research (Alternative) Hypothesis (H1 or HA \(\mu_x ≠ \mu_y\) or \(\mu_x < \mu_y\)) – what is expected to be found </li>
+</ul></li>
+<li><p>Types of Hypotheses:  </p>
+
+<ul>
+<li>Directional – the IV is expected to ONLY increase or ONLY decrease the DV
+\(\mu_x > \mu_y\) or \(\mu_x < \mu_y\) </li>
+<li>Nondirectional – effect of IV could increas \(\mu_x ≠ \mu_y\) or decrease the DV </li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="hyp1">
+  <h2>Comparing Means</h2>
+  <ul>
+<li>One Sample z test 
+\(z = \frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}\) </li>
+</ul>
+
+<h3>Work through Example Pg. 209</h3>
+
+<h3>Upcoming Items</h3>
+
+<ul>
+<li>Two Sample z test (next chapter)</li>
+<li>Multiple Samples (future chapters)</li>
+</ul>
+
+</section>
+<section class="slide class" id="means1">
+  <h2>Test Statistic: z score</h2>
+  <p>Obtain the value for the test statistic that was calculated... Page 561
+<img src="ztable1.png" alt="width"></p>
+
+<p>It actually looks like this:
+<img src="zcurve.png" alt="width"></p>
+
+<p>For this value it would:
+<img src="zarea.png" alt="width"></p>
+
+<p>Z-scores can be used to determine proportions of the curve </p>
+
+</section>
+<section class="slide class" id="teststat">
+  <h2>Probabilities, Significance and Confidence</h2>
+  <p>For Critical Values of Z</p>
+
+<table><thead>
+<tr>
+<th>Prob. significance level</th>
+<th>1-tailed (directional)</th>
+<th>2-Tailed (non-directional)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0.05</td>
+<td>1.65</td>
+<td>1.96</td>
+</tr>
+<tr>
+<td>0.01</td>
+<td>2.33</td>
+<td>2.58</td>
+</tr>
+<tr>
+<td>0.001</td>
+<td>3.09</td>
+<td>3.29</td>
+</tr>
+</tbody></table>
+
+<p><strong>Example: Pg. 212</strong></p>
+
+<p>\(z_{obtained}=\frac{51.70-50}{\frac{10}{\sqrt{100}}}\)
+\(= \frac{1.70}{\frac{10}{10}} = \frac{1.70}{1} = 1.70\)</p>
+
+<p>Depending on the direction or non-direction of your result, you can make the following conclusions if:</p>
+
+<ul>
+<li>\(z_{obt} > z_{crit}\) Reject the \(H_0\) in favor of the \(H_1\)</li>
+</ul>
+
+<p>and </p>
+
+<ul>
+<li>\(z_{obt} < z_{crit}\) Retain the \(H_0\) in favor of the \(H_1\)</li>
+</ul>
+
+</section>
+<section class="slide class" id="ztest">
+  <h2>Decision Making</h2>
+  <p><img src="decisions1.png" alt="width"></p>
+
+</section>
+<section class="slide class" id="decision1">
+  <h2>Types of Errors</h2>
+  <h3>Graphically</h3>
+
+<ul>
+<li>When the null is retained we expect the following to be the case</li>
+</ul>
+
+<p><img src="error1.png" alt="width"></p>
+
+<ul>
+<li>When the null is rejected we expect the following to be the case</li>
+</ul>
+
+<p><img src="error2.png" alt="width"></p>
+
+</section>
+<section class="slide class" id="errors">
+  <h2>Types of Errors</h2>
+  <h3>Type I: \(\alpha\) Error</h3>
+
+<ol>
+<li>The probability of falsely rejeting a true null hypothesis.</li>
+<li>A type 1 error occurs when two samples appear to be different, but are actually from the same population. </li>
+</ol>
+
+<p><img src="type1.png" alt="width"></p>
+
+<h3>Type II: $\beta $ Error</h3>
+
+<ol>
+<li>Failure to reject a false null hypothesis.</li>
+<li>Type 2 errors occur when two samples appear to be from the same population, but are actually from different populations.</li>
+</ol>
+
+<p><img src="type2.png" alt="width"></p>
+
+</section>
+<section class="slide class" id="error2">
+  <h2>Equations: Population Parameters</h2>
+  <p>Equations calculated <strong>FOR POPULATION MEASURES</strong> only.</p>
+
+<ul>
+<li>The Mean: \(\mu =\frac{\Sigma x}{N}\)</li>
+<li>Variance (computational): \(\sigma ^2 = \frac{\Sigma(x - \mu)^2}{N}\)</li>
+<li>Variance (definitional): \(\sigma^2 = \frac{\Sigma x^2 - \frac{(\Sigma x)^2}{N}}{N}\)</li>
+<li>Standard Deviation: \(\sqrt{\sigma^2} = \sigma\)</li>
+</ul>
+
+</section>
+<section class="slide class" id="eq1">
+  <h2>Equations: Sample Statistics</h2>
+  <p>Equations calculated for <strong>SAMPLE MEASURES</strong> only</p>
+
+<ul>
+<li>The Mean: \(\bar{x} = \frac{\Sigma x}{n}\)</li>
+<li>Variance (computational): \(s^2 = \frac{\Sigma (x - \bar{x})^2}{n}\)</li>
+<li>Variance (definitional): \(s^2 = \frac{\Sigma x^2 - \frac{(\Sigma x)^2}{n}}{n}\)</li>
+<li>Standard Deviation: \(\sqrt{s^2} = s\)</li>
+</ul>
+
+</section>
+<section class="slide class" id="eq2">
+  <h3>New Equation: z Test of Statistical Significance</h3>
+  <p>The z test equation is:  \(z = \frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}\)</p>
+
+</section>
+<section class="slide class" id="eq3">
+  <h2>Key Concepts</h2>
+  <ul>
+<li>Tests of Statistical Significance
+
+<ul>
+<li>Techniques that help us to generalize to a larger group.</li>
+</ul></li>
+<li>Inferential Statistics (Inductive Statistics)
+
+<ul>
+<li>The body of knowledge that deals with tests of significance.</li>
+</ul></li>
+<li>Descriptive Statistics
+
+<ul>
+<li>Statistics in which frequency distributions or relationships between variables are described.</li>
+</ul></li>
+<li>Population/Sampling Universe
+
+<ul>
+<li>The group about which we want to generalize.</li>
+</ul></li>
+<li>Sample
+
+<ul>
+<li>The smaller group from the population that is selected to be studied.</li>
+</ul></li>
+<li>Drawing a Sample
+
+<ul>
+<li>The selection of subjects to be in a sample.</li>
+</ul></li>
+<li>Sampling Bias/Biased Sample
+
+<ul>
+<li>The mechanism for selecting the sample that causes the sample to be not representative of the population as a whole.</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="definitions1">
+  <h2>Key Concepts</h2>
+  <ul>
+<li>Random Sample
+
+<ul>
+<li>A sample that is not biased.</li>
+</ul></li>
+<li>Simple Random Sample
+
+<ul>
+<li>A sample drawn in such a way that every member of the population has an equal likelihood of being included in the sample.</li>
+</ul></li>
+<li>Sampling Error
+
+<ul>
+<li>A deviation from what actually exists in the population not associated with sampling bias but still existing, even though the sample was randomly drawn.</li>
+</ul></li>
+<li>Normal Curve
+
+<ul>
+<li>The normal curve is symmetric, bell shaped, and asymptotic. The inflection points fall at one standard deviation above and below the mean.</li>
+</ul></li>
+<li>Hypotheses
+
+<ul>
+<li>Null Hypothesis (\(H_0\)): A statement postulating that in the population, the means of two or more groups are the same or, in the case of two variables in a cross-tabulation, that in the population, the two variables are unrelated.<br></li>
+<li>Alternative/Research Hypothesis (\(H_1\)): Statement that indicates that in the population, the means of two or more groups differ or, in the case of a cross-tabulation, the two variables are related.</li>
+</ul></li>
+<li>Fallacy of Affirming the Consequent
+
+<ul>
+<li>A principle of logic that suggests that the only way to &quot;prove&quot; the alternative or research hypothesis is to demonstrate that the null hypothesis is true.</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="definitions2">
+  <h2>Key Concepts</h2>
+  <ul>
+<li>Chi-Square Test
+
+<ul>
+<li>A test of significance for two variables in a cross-tabulation.</li>
+</ul></li>
+<li>Sample Statistics
+
+<ul>
+<li>Information computed from sample data.</li>
+</ul></li>
+<li>Population Parameters
+
+<ul>
+<li>Information computed from population data.</li>
+</ul></li>
+<li>Population mean, mu, and \(\mu\)
+
+<ul>
+<li>Population Mean: \(\mu\) is the population&#39;s mean</li>
+</ul></li>
+<li>Population Standard Deviation / lower case sigma \(\sigma\)
+
+<ul>
+<li>Population St. Deviation: \(\sigma^2\) is the population&#39;s standard deviation</li>
+</ul></li>
+<li>N:
+
+<ul>
+<li>Population size.</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="definitions3">
+  <h2>Key Concepts</h2>
+  <ul>
+<li>One Sample Tests
+
+<ul>
+<li>Tests that compare data from a sample to similar data in a population.</li>
+</ul></li>
+<li>One Sample z test.
+
+<ul>
+<li>A test of significance that can be performed when we know the population&#39;s standard deviation as well as it&#39;s mean.</li>
+</ul></li>
+<li>One Sample t test
+
+<ul>
+<li>A test that can be performed when we know the population&#39;s mean but not it&#39;s standard deviation.</li>
+</ul></li>
+<li>Two Sample t test
+A t test that compares two sample means, rather than one sample&#39;s mean to another population&#39;s mean.</li>
+<li>One Way Analysis of Variance (ANOVA)
+
+<ul>
+<li>A test in which two or more sample means may be compared simultaneously.</li>
+</ul></li>
+<li class='05'>Level of Significance
+
+<ul>
+<li>The probability level classically used by social statisticians for determining that a null hypothesis may be rejected.</li>
+</ul></li>
+<li>Probabilities
+
+<ul>
+<li>Proportions that reflect the likelihood of a particular outcome.</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="definitions4">
+  <h2>Key Concepts</h2>
+  <ul>
+<li>Type I Error / Alpha (\(\alpha\)) Error
+
+<ul>
+<li>The probability of falsely rejecting a true null hypothesis.</li>
+</ul></li>
+<li>Non-directional Hypothesis / Two-tailed Alternative Hypothesis / Two-tailed Test
+
+<ul>
+<li>An alternative hypothesis that does not specify the directionality (i.e. which mean will ultimately be larger).</li>
+</ul></li>
+<li>Directional Hypothesis / One-tailed Alternative Hypothesis / One-tailed Test
+
+<ul>
+<li>An alternative hypothesis that does specify which mean will be the larger one.</li>
+</ul></li>
+<li>Degrees of Freedom:
+
+<ul>
+<li>An additional piece of information needed for tests where critical values vary with the problem and may be functions of such things as sample size.</li>
+</ul></li>
+<li>Type II Error/ Beta (\(\beta\)) Error
+
+<ul>
+<li>Failure to reject a false null hypothesis.</li>
+</ul></li>
+</ul>
+
+</section>
+<section class="slide class" id="nexttime">
+  <h2>Next Time</h2>
+  <ul>
+<li>Wednesday: Chapter 8 Probability, z and t tests</li>
+<li>IMPORTANT DEADLINES:
+
+<ul>
+<li>Homework 1 is due by -- Midnight 9/30/14. Late fee kicks in after midnight.</li>
+</ul></li>
+<li>Upcoming Items:
+
+<ul>
+<li>Homework 2 released next Monday 10/6/14</li>
+<li>Exam 2 10/22</li>
+<li>Writing Draft 10/29</li>
+</ul></li>
+</ul>
+
+</section>
+</body>
+  <!-- deck.navigation snippet -->
+  <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+  <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+  
+  <!-- deck.status snippet -->
+  <p class="deck-status">
+  <span class="deck-status-current"></span>
+    /
+  <span class="deck-status-total"></span>
+  </p>
+  
+  <!-- deck.goto snippet -->
+  <form action="." method="get" class="goto-form">
+  	<label for="goto-slide">Go to slide:</label>
+  	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+  	<datalist id="goto-datalist"></datalist>
+  	<input type="submit" value="Go">
+  </form>
+  
+  <!-- deck.hash snippet -->
+  <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  
+  
+  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/frameworks/deckjs/jquery-1.7.min.js"><\/script>')</script>
+  
+  <!-- Add Slide Class to Build Elements -->
+  <script type='text/javascript'>
+  $('ol.build li').addClass('slide')
+  $('ul.build li').addClass('slide')
+  </script>
+  
+  <!-- Deck Core and extensions -->
+  <script src="libraries/frameworks/deckjs/core/deck.core.js"></script>
+  <script src="libraries/frameworks/deckjs/extensions/goto/deck.goto.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/hash/deck.hash.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/menu/deck.menu.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/navigation/deck.navigation.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/scale/deck.scale.js"></script>
+<script src="libraries/frameworks/deckjs/extensions/status/deck.status.js"></script>
+<!-- Initialize the deck -->
+  <script>
+  $(function() {
+  	$.deck('.slide');
+  });
+  </script>  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script> -->
+<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<script>  
+$(function (){ 
+  $("#example").popover(); 
+  $("[rel='tooltip']").tooltip(); 
+});  
+</script>   
+
+</html>
